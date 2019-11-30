@@ -1,12 +1,11 @@
 package com.tongji.welog.model;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Post {
     int postId;
     int userId;
-    Timestamp time;
+    Date time;
     int deleteFlag;
     String content;
 
@@ -26,11 +25,11 @@ public class Post {
         this.userId = userId;
     }
 
-    public Timestamp getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 
@@ -49,4 +48,5 @@ public class Post {
     public void setContent(String content) {
         this.content = content;
     }
+
 }
