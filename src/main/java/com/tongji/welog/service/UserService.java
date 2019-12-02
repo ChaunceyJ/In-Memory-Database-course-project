@@ -4,6 +4,7 @@ import com.tongji.welog.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 
 @Service
@@ -27,12 +28,15 @@ public class UserService {
     public HashMap<String, String> login(int userId, String password){
         HashMap<String,String> result = new HashMap<>();
         try {
-            userDao.login(userId, password);
-        } catch (Exception e) {
-            String error = e.getMessage();
-            result.put("status", error);
+            int count = userDao.login(userId, password);
+            if (count == 1) result.put("login","success");
+            else result.put("login", "username or password error");
+            result.put("status", "success");
+        } catch (SQLException e) {
+            result.put("status", "error");
+            e.printStackTrace();
         }
-        result.put("status", "success");
+
         return result;
     }
 }

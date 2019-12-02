@@ -1,10 +1,12 @@
 package com.tongji.welog.dao;
 
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+@Repository
 public class UserRelationDao {
     public void follow(int userId, int objectId) {
     }
-    public List<> relationList(int userId, int type) {
+    public void relationList(int userId, int type) {
     }
 }

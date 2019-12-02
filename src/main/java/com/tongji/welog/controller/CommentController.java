@@ -17,7 +17,7 @@ public class CommentController {
     public ResponseEntity sendComment(
             @RequestParam(value = "userId") int userId,
             @RequestParam(value = "postId") int postId,
-            @RequestParam(value = "content") int content
+            @RequestParam(value = "content") String content
     ){
         return ResponseEntity.ok(postCommentService.sendComment(userId, postId, content));
     }
