@@ -3,11 +3,11 @@ package com.tongji.welog.model;
 import java.util.Date;
 
 public class Post {
-    int postId;
-    int userId;
-    Date time;
-    int deleteFlag;
-    String content;
+    private int postId;
+    private int userId;
+    private Date time;
+    private int deleteFlag;
+    private String content;
 
     public int getPostId() {
         return postId;

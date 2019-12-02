@@ -1,10 +1,10 @@
 package com.tongji.welog.model;
 
 public class User {
-    int userId;
-    String name;
-    String password;
-    String portrait;
+    private int userId;
+    private String name;
+    private String password;
+    private String portrait;
 
     public int getUserId() {
         return userId;

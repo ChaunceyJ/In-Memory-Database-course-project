@@ -1,14 +1,14 @@
 package com.tongji.welog.model;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class PostComment {
-    int commentId;
-    int actorId;
-    Timestamp time;
-    String content;
-    int originalId;
-    int atId;
+    private int commentId;
+    private int actorId;
+    private Date time;
+    private String content;
+    private int originalId;
+    private int atId;
 
     public int getCommentId() {
         return commentId;
@@ -26,11 +26,11 @@ public class PostComment {
         this.actorId = actorId;
     }
 
-    public Timestamp getTime() {
+    public Date getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(Date time) {
         this.time = time;
     }
 

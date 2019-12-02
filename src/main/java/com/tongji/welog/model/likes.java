@@ -1,8 +1,8 @@
 package com.tongji.welog.model;
 
 public class likes {
-    int userId;
-    int postId;
+    private int userId;
+    private int postId;
 
     public int getUserId() {
         return userId;

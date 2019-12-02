@@ -1,9 +1,9 @@
 package com.tongji.welog.model;
 
 public class UserRelation {
-    int relationId;
-    int actorId;
-    int objectId;
+    private int relationId;
+    private int actorId;
+    private int objectId;
 
     public int getRelationId() {
         return relationId;

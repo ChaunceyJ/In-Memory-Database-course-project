@@ -13,10 +13,26 @@ public class UserService {
     private UserDao userDao;
 
     public HashMap<String, String> profilePage(int userId){
-
+        HashMap<String,String> result = new HashMap<>();
+        try {
+            userDao.profilePage(userId);
+        } catch (Exception e) {
+            String error = e.getMessage();
+            result.put("status", error);
+        }
+        result.put("status", "success");
+        return result;
     }
 
     public HashMap<String, String> login(int userId, String password){
-
+        HashMap<String,String> result = new HashMap<>();
+        try {
+            userDao.login(userId, password);
+        } catch (Exception e) {
+            String error = e.getMessage();
+            result.put("status", error);
+        }
+        result.put("status", "success");
+        return result;
     }
 }
