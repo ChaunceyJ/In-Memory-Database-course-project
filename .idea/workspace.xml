@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43bff43-025e-49e2-b880-a55ee1c6b6e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/controller/CommentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/dao/PostCommentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/dao/UserRelationDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/service/PostCommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/service/UserRelationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tongji/welog/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tongji/welog/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,41 +27,6 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="Oracle-VirtualBox" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle-VirtualBox" type="feb32156:DbDataSourceImpl" />
-        <item name="CHEND: schema" type="3abd1b6a:OraImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle-VirtualBox" type="feb32156:DbDataSourceImpl" />
-        <item name="CHEND: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="LIKES: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle-VirtualBox" type="feb32156:DbDataSourceImpl" />
-        <item name="CHEND: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="POST: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle-VirtualBox" type="feb32156:DbDataSourceImpl" />
-        <item name="CHEND: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="POST_COMMENT: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle-VirtualBox" type="feb32156:DbDataSourceImpl" />
-        <item name="CHEND: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="USER: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Oracle-VirtualBox" type="feb32156:DbDataSourceImpl" />
-        <item name="CHEND: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="USER_RELATION: table" type="942f455b:OraImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -180,7 +138,8 @@
       <workItem from="1575012394338" duration="2122000" />
       <workItem from="1575026098859" duration="625000" />
       <workItem from="1575084112682" duration="9208000" />
-      <workItem from="1575255162551" duration="1323000" />
+      <workItem from="1575255162551" duration="1899000" />
+      <workItem from="1575264142130" duration="750000" />
     </task>
     <servers />
   </component>
