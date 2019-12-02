@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c43bff43-025e-49e2-b880-a55ee1c6b6e7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/model/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/model/PostComment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/model/UserRelation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/model/likes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/dao/PostCommentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/dao/UserRelationDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/service/PostCommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/service/UserRelationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tongji/welog/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tongji/welog/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tongji/welog/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tongji/welog/service/UserService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +150,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@aa39b3b7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@326027f2" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@326027f2" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@277cc686" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -172,6 +177,10 @@
       <workItem from="1574924976876" duration="445000" />
       <workItem from="1574992132627" duration="490000" />
       <workItem from="1574997244703" duration="2962000" />
+      <workItem from="1575012394338" duration="2122000" />
+      <workItem from="1575026098859" duration="625000" />
+      <workItem from="1575084112682" duration="9208000" />
+      <workItem from="1575255162551" duration="1323000" />
     </task>
     <servers />
   </component>
