@@ -77,5 +77,37 @@ public class PostDao {
         return records;
     }
 
+    public List<JSONObject> searchPosts(int index, String keyWord){
+        List<JSONObject> records = new ArrayList<>();
+        //index 帖子的游标，包含帖子信息+用户+点赞数
+        SimpleJdbcCall call = new SimpleJdbcCall(jdbcTemplate)
+                .withProcedureName("SEARCH_POST")
+                . declareParameters(
+                        new SqlParameter("POSTINDEX", OracleTypes.INTEGER),
+                        new SqlParameter("WORD", OracleTypes.VARCHAR),
+                        new SqlOutParameter("POSTS", OracleTypes.CURSOR));
+        Map<String, Object> execute = call.execute(
+                new MapSqlParameterSource()
+                        .addValue("POSTINDEX", index)
+                        .addValue("WORD", keyWord)
+        );
+        ResultSet rs = (ResultSet) execute.get("POSTS");
+        try {
+            while (rs.next()){
+                Map<String, Object> post = new HashMap<>();
+                post.put("postId", rs.getInt("postId"));
+                post.put("userId", rs.getString("userId"));
+                post.put("time", rs.getDate("time"));
+                post.put("content", rs.getString("content"));
+                post.put("likeNum", rs.getInt("likeNum"));
+                post.put("userName", rs.getString("userName"));
+                records.add((JSONObject)JSONObject.toJSON(post));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return records;
+    }
+
 
 }

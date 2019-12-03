@@ -14,9 +14,12 @@ public class PostService {
     @Autowired
     PostDao postDao;
 
-    public int insertPost(Post post){return postDao.insert(post);}
+    public boolean insertPost(Post post){return postDao.insert(post);}
 
     public boolean deletePost(Post post){return postDao.delete(post);}
 
     public List<JSONObject> allPost(int index){return postDao.getPosts(index);}
+
+    public List<JSONObject> searchPost(int index, String keyWord){return postDao.searchPosts(index, keyWord);}
+
 }
