@@ -14,7 +14,7 @@ public class PostService {
     @Autowired
     PostDao postDao;
 
-    public int insertPost(Post post){return postDao.insert(post);}
+    public boolean insertPost(Post post){return postDao.insert(post);}
 
     public boolean deletePost(Post post){return postDao.delete(post);}
 

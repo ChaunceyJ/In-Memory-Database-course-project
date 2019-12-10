@@ -4,7 +4,10 @@ import com.tongji.welog.dao.PostCommentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class PostCommentService {
@@ -12,27 +15,12 @@ public class PostCommentService {
     @Autowired
     private PostCommentDao postCommentDao;
 
-    public HashMap<String, String> viewComment(int postId){
-        HashMap<String,String> result = new HashMap<>();
-        try {
-            postCommentDao.viewComment(postId);
-        } catch (Exception e) {
-            String error = e.getMessage();
-            result.put("status", error);
-        }
-        result.put("status", "success");
-        return result;
+    public ArrayList<HashMap<String,Object>> viewComment(int postId, HashMap<String, Integer> range)
+            throws SQLException, ClassNotFoundException {
+        return postCommentDao.viewComment(postId,range.get("startFrom"), range.get("limitation"));
     }
 
-    public HashMap<String, String> sendComment(int userId, int postId, String content){
-        HashMap<String,String> result = new HashMap<>();
-        try {
-            postCommentDao.sendComment(userId, postId, content);
-        } catch (Exception e) {
-            String error = e.getMessage();
-            result.put("status", error);
-        }
-        result.put("status", "success");
-        return result;
+    public void sendComment(int userId, int postId, String content) throws SQLException, ClassNotFoundException {
+        postCommentDao.sendComment(userId, postId, content);
     }
 }

@@ -2,14 +2,18 @@ package com.tongji.welog.controller;
 
 import com.tongji.welog.service.UserRelationService;
 import com.tongji.welog.service.UserService;
+
+import com.tongji.welog.util.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Hashtable;
 
+@RequestMapping("/api/User")
 @RestController
 public class UserController {
     @Autowired
@@ -17,35 +21,40 @@ public class UserController {
     @Autowired
     UserRelationService userRelationService;
 
-    //includes unfollow
-    @RequestMapping(value = "/follow" , method = RequestMethod.POST ,produces = "application/json")
-    public ResponseEntity follow(
-            @RequestParam(value = "userId") int userId,
-            @RequestParam(value = "objectId") int objectId
+    @RequestMapping(value = "/getUserPublicInfo/{user_id}" , method = RequestMethod.GET ,produces = "application/json")
+    public JSONResult profilePage(
+            @PathVariable(value = "user_id") int userId
     ){
-        return ResponseEntity.ok(userRelationService.follow(userId, objectId));
+        try {
+            return JSONResult.custom("200", "success", userService.getUserPublicInfo(userId));
+        } catch (Exception e) {
+            return JSONResult.custom("200", "fail", null);
+        }
     }
 
-    @RequestMapping(value = "/relationList" , method = RequestMethod.POST ,produces = "application/json")
-    public ResponseEntity relationList(
-            @RequestParam(value = "userId") int userId,
-            @RequestParam(value = "type") int type
+    @RequestMapping(value = "/signIn" , method = RequestMethod.POST ,produces = "application/json")
+    public JSONResult login(
+            @RequestBody Hashtable<String,Object> userInfoForSignIn
     ){
-        return ResponseEntity.ok(userRelationService.relationList(userId, type));
+        try {
+            HashMap<String, Integer> result = userService.login
+                    (userInfoForSignIn.get("name"), userInfoForSignIn.get("password"));
+            if ( result.get("result")==1) {
+                return JSONResult.custom("200", "login success", result);
+            }
+            else return JSONResult.custom("200","wrong username or password",null);
+        } catch (Exception e) {
+            return JSONResult.custom("200","error",null);
+        }
+
     }
 
-    @RequestMapping(value = "/profilePage" , method = RequestMethod.POST ,produces = "application/json")
-    public ResponseEntity profilePage(
-            @RequestParam(value = "userId") int userId
-    ){
-        return ResponseEntity.ok(userService.profilePage(userId));
-    }
 
-    @RequestMapping(value = "/login" , method = RequestMethod.POST ,produces = "application/json")
-    public ResponseEntity login(
-            @RequestParam(value = "userId") int userId,
-            @RequestParam(value = "password") String password
-    ){
-        return ResponseEntity.ok(userService.login(userId, password));
+    @RequestMapping(value = "/signUp" , method = RequestMethod.POST ,produces = "application/json")
+    public JSONResult signup(
+            @RequestBody Hashtable<String,String> userInfoForSignIn
+    ) throws SQLException, ClassNotFoundException {
+        return JSONResult.custom("200",userService.signUp
+                (userInfoForSignIn.get("name"), userInfoForSignIn.get("password")),null);
     }
 }

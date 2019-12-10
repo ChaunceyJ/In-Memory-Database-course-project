@@ -13,30 +13,17 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public HashMap<String, String> profilePage(int userId){
-        HashMap<String,String> result = new HashMap<>();
-        try {
-            userDao.profilePage(userId);
-        } catch (Exception e) {
-            String error = e.getMessage();
-            result.put("status", error);
-        }
-        result.put("status", "success");
-        return result;
+    public HashMap<String,Object> getUserPublicInfo(int userId) throws SQLException, ClassNotFoundException {
+        return userDao.getUserPublicInfo(userId);
     }
 
-    public HashMap<String, String> login(int userId, String password){
-        HashMap<String,String> result = new HashMap<>();
-        try {
-            int count = userDao.login(userId, password);
-            if (count == 1) result.put("login","success");
-            else result.put("login", "username or password error");
-            result.put("status", "success");
-        } catch (SQLException e) {
-            result.put("status", "error");
-            e.printStackTrace();
-        }
+    public HashMap<String, Integer> login(Object userId, Object password)
+            throws SQLException, ClassNotFoundException {
+        return userDao.login(userId, password);
+    }
 
-        return result;
+
+    public String signUp(String name, String password) throws SQLException, ClassNotFoundException {
+        return userDao.signUp(name, password);
     }
 }
