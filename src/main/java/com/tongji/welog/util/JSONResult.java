@@ -18,11 +18,11 @@ public class JSONResult<T> extends ResponseEntity<Message> {
     }
 
     public static <T> JSONResult<T> success(T data) {
-        return new JSONResult("200", "成功", data);
+        return new JSONResult("200", "success", data);
     }
 
     public static <T> JSONResult<T> failed(T data) {
-        return new JSONResult("422", "失败", data);
+        return new JSONResult("422", "failed", data);
     }
 
     public static <T> JSONResult<T> failMsg(String msg) {

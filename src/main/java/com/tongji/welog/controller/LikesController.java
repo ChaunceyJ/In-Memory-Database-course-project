@@ -3,7 +3,7 @@ package com.tongji.welog.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.tongji.welog.model.Likes;
 import com.tongji.welog.service.LikesService;
-import com.tongji.welog.utils.JSONResult;
+import com.tongji.welog.util.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

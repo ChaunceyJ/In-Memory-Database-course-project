@@ -2,9 +2,8 @@ package com.tongji.welog.controller;
 
 import com.tongji.welog.model.Post;
 import com.tongji.welog.service.PostService;
-import com.tongji.welog.utils.JSONResult;
+import com.tongji.welog.util.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
