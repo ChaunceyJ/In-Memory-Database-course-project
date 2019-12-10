@@ -1,6 +1,6 @@
 package com.tongji.welog.model;
 
-public class likes {
+public class Likes {
     private int userId;
     private int postId;
 

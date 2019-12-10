@@ -24,6 +24,11 @@ class PostDaoTest {
 
     @Test
     void test1() {
-        System.out.println(postDao.getPosts(0));
+        System.out.println(postDao.getPosts(0, 10));
+    }
+
+    @Test
+    void searchPosts() {
+        System.out.println(postDao.searchPosts(0,10 ,"tes"));
     }
 }

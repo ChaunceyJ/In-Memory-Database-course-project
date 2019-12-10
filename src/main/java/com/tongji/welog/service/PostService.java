@@ -18,8 +18,13 @@ public class PostService {
 
     public boolean deletePost(Post post){return postDao.delete(post);}
 
-    public List<JSONObject> allPost(int index){return postDao.getPosts(index);}
+    public List<JSONObject> allPost(int start, int index){return postDao.getPosts(start, index);}
 
-    public List<JSONObject> searchPost(int index, String keyWord){return postDao.searchPosts(index, keyWord);}
+    public List<JSONObject> searchPost(int start, int index, String keyWord){return postDao.searchPosts(start, index, keyWord);}
+
+    public List<JSONObject> someonePost(int userId, int start, int index){return postDao.getUserPosts(userId, start, index);}
+
+    public List<JSONObject> followPost(int userId, int start, int index){return postDao.getFollowPosts(userId, start, index);}
+
 
 }
