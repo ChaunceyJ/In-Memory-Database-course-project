@@ -36,7 +36,7 @@ public class PostCommentDao extends BaseDao {
             temp.add(r);
         }
         cs.close();
-        conn.close();
+//        conn.close();
         return temp;
     }
     public void sendComment(int userId, int postId, String content) throws SQLException, ClassNotFoundException {
@@ -49,6 +49,6 @@ public class PostCommentDao extends BaseDao {
         cs.setObject(3, content);
         cs.execute();
         cs.close();
-        conn.close();
+//        conn.close();
     }
 }

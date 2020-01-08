@@ -21,7 +21,7 @@ public class UserRelationDao extends BaseDao{
         cs.setObject(2, objectId);
         cs.execute();
         cs.close();
-        conn.close();
+//        conn.close();
     }
 
     public void unfollow(int userId, int objectId) throws SQLException, ClassNotFoundException {
@@ -33,12 +33,12 @@ public class UserRelationDao extends BaseDao{
         cs.setObject(2, objectId);
         cs.execute();
         cs.close();
-        conn.close();
+//        conn.close();
     }
     public ArrayList<HashMap<String,Object>> relationList(
             int userId, int startFrom, int limitation, String type) throws SQLException, ClassNotFoundException {
         Connection conn = getConn();
-        String sql = "{?=call relationlist(?,?,?,?)}";
+        String sql = "{?=call ttrelationlist(?,?,?,?)}";
         CallableStatement cs = conn.prepareCall(sql);
 
         //
@@ -53,13 +53,19 @@ public class UserRelationDao extends BaseDao{
         ArrayList<HashMap<String,Object>> temp = new ArrayList<>();
         while(rs.next()){
             HashMap<String,Object> r = new HashMap<>();
+            System.out.println("=========================");
+            System.out.println(rs.getObject("user_id"));
             r.put("user_id", rs.getObject("user_id"));
             r.put("nickName", rs.getObject("name"));
             r.put("avatarUrl", rs.getObject("portrait"));
             temp.add(r);
         }
+
+//        for (HashMap<String,Object> a : temp) {
+//            System.out.println(a.get("user_id"));
+//        }
         cs.close();
-        conn.close();
+//        conn.close();
         return temp;
     }
 

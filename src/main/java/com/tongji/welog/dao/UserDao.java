@@ -33,13 +33,14 @@ public class UserDao extends BaseDao {
 
     public HashMap<String,Object> getUserPublicInfo(int userId) throws SQLException, ClassNotFoundException {
         Connection conn = getConn();
-        String sql = "{call user_profile(?,?,?,?)}";
+        String sql = "{call user_profile(?,?,?,?,?)}";
         CallableStatement cs = conn.prepareCall(sql);
 
         cs.setObject(1, userId);
         cs.registerOutParameter(2, Types.REF_CURSOR);
         cs.registerOutParameter(3, Types.INTEGER);//follower
         cs.registerOutParameter(4, Types.INTEGER);//following
+        cs.registerOutParameter(5, Types.INTEGER);//post count
         cs.execute();
         ResultSet rs = (ResultSet)cs.getObject(2);
         HashMap<String,Object> returns = new HashMap<>();
@@ -48,10 +49,11 @@ public class UserDao extends BaseDao {
             returns.put("nickname", rs.getObject("name"));
             returns.put("avatar_url",rs.getObject("portrait"));
         }
+        returns.put("messages_num", cs.getObject(5));
         returns.put("followers_num",cs.getObject(3));
         returns.put("follows_num",cs.getObject(4));
         cs.close();
-        conn.close();
+//        conn.close();
         return returns;
     }
 
@@ -67,7 +69,7 @@ public class UserDao extends BaseDao {
         cs.execute();
         String result = (String)cs.getObject(3);
         cs.close();
-        conn.close();
+//        conn.close();
         return result;
     }
 }

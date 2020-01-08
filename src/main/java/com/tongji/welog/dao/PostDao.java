@@ -10,6 +10,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.LinkedCaseInsensitiveMap;
 
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Repository
@@ -105,18 +107,36 @@ public class PostDao {
         for (Object i:arrayList
         ) {
             Map<String, Object> post = new HashMap<>();
-            Set<Map.Entry> set = ((LinkedCaseInsensitiveMap)i).entrySet();
-            for (Map.Entry e:set
-            ) {
-                if (e.getKey().toString().equals("LIKENUM") && e.getValue()==null){
-                    post.put(e.getKey().toString(), 0);
-                }else {
-                    post.put(e.getKey().toString(), e.getValue());
-                }
+//            Set<Map.Entry> set = ((LinkedCaseInsensitiveMap)i).entrySet();
+//            for (Map.Entry e:set
+//            ) {
+//                if (e.getKey().toString().equals("LIKENUM") && e.getValue()==null){
+//                    post.put(e.getKey().toString(), 0);
+//                }else {
+//                    post.put(e.getKey().toString(), e.getValue());
+//                }
+//            }
+            LinkedCaseInsensitiveMap map = (LinkedCaseInsensitiveMap)i;
+            post.put("message_id", map.get("POST_ID"));
+            post.put("message_content", map.get("CONTENT"));
+            SimpleDateFormat SFDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String time = SFDate.format((Date)map.get("TIME"));
+            post.put("message_create_time", time);
+            post.put("message_sender_user_id", map.get("USER_ID"));
+            int likes = 0;
+            if (map.get("LIKENUM") != null){
+                likes = ((BigDecimal)map.get("LIKENUM")).intValue();
             }
+            post.put("message_like_num", likes);
+            int comment = 0;
+            if (map.get("COM") != null){
+                comment = ((BigDecimal)map.get("COM")).intValue();
+            }
+            post.put("message_comment_num", comment);
             records.add((JSONObject)JSONObject.toJSON(post));
         }
         return records;
     }
+
 
 }
