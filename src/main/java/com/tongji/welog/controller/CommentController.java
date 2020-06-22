@@ -16,12 +16,18 @@ public class CommentController {
 
     @RequestMapping(value = "/add/{message_id}" , method = RequestMethod.POST ,produces = "application/json")
     public ResponseEntity sendComment(
-            @CookieValue(value = "user_id") int userId,
+//            @RequestParam(value = "userID")
+//                    int userId,
             @PathVariable(value = "message_id") int postId,
-            @RequestBody HashMap<String, String> content
+            @RequestBody HashMap<String, String> contentAndUserId
     ){
         try {
-            postCommentService.sendComment(userId, postId, content.get("comment_content"));
+            int userId = Integer.parseInt(contentAndUserId.get("userID"));
+            String content = contentAndUserId.get("comment_content");
+            System.out.println(userId);
+            System.out.println(content);
+            postCommentService.sendComment(userId,
+                    postId, content);
             return JSONResult.custom("200","success",null);
         } catch (Exception e) {
             e.printStackTrace();
@@ -35,6 +41,7 @@ public class CommentController {
             @RequestBody HashMap<String, Integer> range
     ){
         try {
+            System.out.println("===================");
             return JSONResult.custom("200","success",
                     postCommentService.viewComment(postId,range));
         } catch (Exception e) {

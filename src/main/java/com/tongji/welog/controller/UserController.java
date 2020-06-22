@@ -28,6 +28,7 @@ public class UserController {
         try {
             return JSONResult.custom("200", "success", userService.getUserPublicInfo(userId));
         } catch (Exception e) {
+            e.printStackTrace();
             return JSONResult.custom("200", "fail", null);
         }
     }

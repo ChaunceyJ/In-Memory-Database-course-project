@@ -18,20 +18,20 @@ public class RelationController {
     @Autowired
     UserRelationService userRelationService;
 
-    @RequestMapping(value = "/follow/{user_id}" , method = RequestMethod.GET ,produces = "application/json")
+    @RequestMapping(value = "/follow/{user_id}" , method = RequestMethod.POST ,produces = "application/json")
     public JSONResult follow(
-            @CookieValue(value = "user_id") int userId,
+            @RequestBody HashMap<String, Integer> range,
             @PathVariable(value = "user_id") int objectId
     ){
-        return JSONResult.custom("200",userRelationService.follow(userId, objectId),null);
+        return JSONResult.custom("200",userRelationService.follow(range.get("userID"), objectId),null);
     }
 
-    @RequestMapping(value = "/cancelFollowingTo/{user_id}" , method = RequestMethod.GET ,produces = "application/json")
+    @RequestMapping(value = "/cancelFollowingTo/{user_id}" , method = RequestMethod.POST ,produces = "application/json")
     public JSONResult unfollow(
-            @CookieValue(value = "user_id") int userId,
-            @PathVariable(value = "user_id") int objectId
+            @RequestBody HashMap<String, Integer> range
+,            @PathVariable(value = "user_id") int objectId
     ){
-        return JSONResult.custom("200",userRelationService.unfollow(userId, objectId),null);
+        return JSONResult.custom("200",userRelationService.unfollow(range.get("userID"), objectId),null);
     }
 
     @RequestMapping(value = "/if_following" , method = RequestMethod.POST ,produces = "application/json")
@@ -48,13 +48,13 @@ public class RelationController {
         }
     }
 
-    @RequestMapping(value = "/if_following_by_me/{be_followed_id}" , method = RequestMethod.GET ,produces = "application/json")
+    @RequestMapping(value = "/if_following_by_me/{be_followed_id}" , method = RequestMethod.POST ,produces = "application/json")
     public JSONResult iffollowbyme(
-            @CookieValue(value = "user_id") int actor_id,
+            @RequestBody HashMap<String, Integer> range,
             @PathVariable(value = "be_followed_id") int object_id
     ){
         try {
-            return JSONResult.custom("200","success",userRelationService.ifFollow(actor_id, object_id));
+            return JSONResult.custom("200","success",userRelationService.ifFollow(range.get("userID"), object_id));
         }
         catch (Exception e) {
             e.printStackTrace();
